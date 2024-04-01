@@ -1,0 +1,87 @@
+#geral {
+    background-image: linear-gradient(to right, rgb(247, 194, 223), #FF4763);
+}
+
+header {
+    position: fixed;
+    top: 0%;
+    left: 1%;
+    width: 98%;
+    z-index: 1000;
+}
+
+h1 {
+    background-image: linear-gradient(to right, lightgray, rgb(140, 140, 140));
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.light {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 5%;
+    height: 70%;
+    border-radius: 25px;
+    background: linear-gradient(90deg, transparent 0%, transparent 50%, lightgray 100%);
+    animation: light 2.25s linear infinite;
+    animation-delay: 2.5s;
+}
+
+@keyframes light {
+    0% {
+        left: 0%;
+    }
+
+    100% {
+        left: 95%;
+    }
+}
+
+ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    column-gap: 5rem;
+    row-gap: 4.5rem;
+}
+
+li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+    width: 225px;
+    border-radius: 1rem;
+    margin: 1rem 0;
+    filter: grayscale(100%);
+    transition: all 0.25s;
+    box-shadow: 0.25rem 0.25rem 1rem black;
+}
+
+img:hover {
+    transform: scale(1.15);
+    filter: none;
+}
+
+.adicionar {
+    filter: none;
+    transform: scale(0.9);
+}
+
+button {
+    font-weight: bolder;
+    font-size: 125%;
+    background-color: #c0c0c0;
+    border-radius: 1rem;
+    box-shadow: 0.5rem 0.25rem 0.75rem black;
+    padding: 0.5rem;
+}
+
+main {
+    padding: 4rem;
+}
