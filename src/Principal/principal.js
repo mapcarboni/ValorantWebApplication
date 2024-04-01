@@ -42,9 +42,7 @@ function Principal() {
                 <main>
                     <ul>
                         <li>
-                            <a href="https://google.com">
-                                <img class="adicionar" src={Usuario} alt="Icone de adicionar um novo agente" />
-                            </a> 
+                            <img class="adicionar" src={Usuario} alt="Icone de adicionar um novo agente" onClick={handleAdicionar}/>
                             <button>Criar novo Agente</button>
                         </li> 
                         {agentes.map(agente => {
