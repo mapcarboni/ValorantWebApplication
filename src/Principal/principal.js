@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import BancoDeDados from '../bancoDeDados';
 import Usuario from './imagem/adicionarUsuario.png';
-import './principal.css';
 
 function Principal() {
     // Estado para armazenar a lista de agentes
@@ -35,32 +34,32 @@ function Principal() {
     }, [bancoDeDados]);
 
     return (
-        <div id="geral">
-            <header>
-                <h1>Valorant Agents</h1>
-                <div class="light"></div>
-            </header>
-            <main>
-                <ul>
-                    <li>
-                        <a href="https://google.com">
-                            <img class="adicionar" src={Usuario} alt="Icone de adicionar um novo agente" />
-                        </a> 
-                        <button>Criar novo Agente</button>
-                    </li> 
-                    {agentes.map(agente => {
-                        return (
-                            <li key={agente.uuid}>
-                                <a href="https://google.com">
-                                    <img src={agente.displayIcon} alt={agente.displayName} />
-                                </a>
-                                <button>{agente.displayName}</button>
-                            </li>
-                        )
-                    })}
-                </ul>
-            </main>
-        </div>
+            <div id="geral">
+                <header>
+                    <h1>Valorant Agents</h1>
+                    <div class="light"></div>
+                </header>
+                <main>
+                    <ul>
+                        <li>
+                            <a href="https://google.com">
+                                <img class="adicionar" src={Usuario} alt="Icone de adicionar um novo agente" />
+                            </a> 
+                            <button>Criar novo Agente</button>
+                        </li> 
+                        {agentes.map(agente => {
+                            return (
+                                <li key={agente.uuid}>
+                                    <Link to={`/detalhes/${agente.uuid}`}>
+                                        <img src={agente.displayIcon} alt={agente.displayName} />
+                                    </Link>
+                                    <button>{agente.displayName}</button>
+                                </li>
+                            )
+                        })}
+                    </ul>
+                </main>
+            </div>
     );
 }
 export default Principal;
