@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import BancoDeDados from '../bancoDeDados';
 
@@ -62,7 +62,6 @@ function Detalhes() {
             gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
             columnGap: '4rem',
         }
-
     };
 
     return (

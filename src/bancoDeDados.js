@@ -44,8 +44,8 @@ class BancoDeDados {
     }
     
     adicionarNovoAgente() {
-        const bancoDeDados = BancoDeDados.retornaBancoDeDados();    
-        const novoAgente = new Agente(uuidv4(), "Novo Agente", "icon-url", "DescriÃ§Ã£o do novo agente", "portrait-url");
+        const bancoDeDados = BancoDeDados.retornaBancoDeDados();
+        const novoAgente = new Agente(uuidv4(), "Novo Agente", "icon-url", "Descricao do novo agente", "portrait-url");
             bancoDeDados.agenteMapa.set(novoAgente.uuid, novoAgente);
     }
 
