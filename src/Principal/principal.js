@@ -3,15 +3,16 @@ import { useNavigate, Link } from 'react-router-dom';
 import BancoDeDados from '../bancoDeDados';
 import Usuario from '../imagem/adicionarUsuario.png';
 
+// Componente funcional Principal, responsável por renderizar a página principal da aplicação
 function Principal() {
     // Estado para armazenar a lista de agentes
     const [agentes, setAgentes] = useState([]);
-    // Hook para permitir a navegacao programÃ¡tica
+    // Hook para permitir a navegação programática
     const navigate = useNavigate();
-    // Instanncia do banco de dados
+    // Instância do banco de dados
     const bancoDeDados = BancoDeDados.retornaBancoDeDados();
 
-    // Funcao para lidar com a adicao de um novo agente
+    // Função para lidar com a adição de um novo agente
     const handleAdicionar = async () => {
         try {
             // Adicionar um novo agente ao banco de dados
@@ -19,7 +20,7 @@ function Principal() {
             // Buscar e atualizar a lista de agentes
             const updatedAgentes = await bancoDeDados.buscarArmazenarAgentes();
             setAgentes(updatedAgentes);
-            // Navegar para a pagina de formulario do novo agente
+            // Navegar para a página de formulário do novo agente
             navigate(`/formulario/${updatedAgentes[updatedAgentes.length - 1].uuid}`);
         } catch (error) {
             console.log('Erro ao adicionar novo agente:', error);
@@ -33,7 +34,7 @@ function Principal() {
             .catch(error => console.log('Erro ao buscar agentes:', error));
     }, [bancoDeDados]);
 
-
+    // Estilos utilizados no componente
     const styles = {
         header: {   
             position: 'fixed',
@@ -85,23 +86,27 @@ function Principal() {
         },
         adicionar: {
             filter: 'none',
-            transform: 'scale(0.9)',
+            transform: 'scale(0.95)',
             width: '225px',
         }
-        
     };
 
+    // Renderização do componente
     return (
         <div>
+            {/* Cabeçalho da página */}
             <header style={styles.header}>
                 <h1 style={styles.h1}>Valorant Agents</h1>
             </header>
+            {/* Corpo da página */}
             <main style={styles.main}>
                 <ul style={styles.ul}>
+                    {/* Item para adicionar um novo agente */}
                     <li style={styles.li}>
                         <img style={styles.adicionar} src={Usuario} alt="Icone de adicionar um novo agente" onClick={handleAdicionar} />
                         <button style={styles.button}>Criar novo Agente</button>
                     </li> 
+                    {/* Mapeamento dos agentes e renderização de suas informações */}
                     {agentes.map(agente => (
                         <li style={styles.li} key={agente.uuid}>
                             <Link to={`/detalhes/${agente.uuid}`}>
@@ -115,4 +120,5 @@ function Principal() {
         </div>
     );
 }
+// Exportação do componente Principal
 export default Principal;

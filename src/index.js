@@ -5,6 +5,7 @@ import Principal from './Principal/principal';
 import Detalhes from './Detalhes/detalhes';
 import Formulario from './Formulario/formulario';
 
+// Definição dos estilos globais
 const globalStyles = {
   '*': {
     margin: 0,
@@ -21,6 +22,7 @@ const globalStyles = {
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
+      {/* Definição das rotas */}
       <Route path="/" element={<Principal />} />
       <Route path="/detalhes/:uuid" element={<Detalhes />} />
       <Route path="/formulario/:uuid" element={<Formulario />} />
@@ -29,7 +31,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// Aplicar estilos globais
+// Aplicar estilos globais aos elementos
 Object.keys(globalStyles).forEach(selector => {
   const elements = document.querySelectorAll(selector);
   elements.forEach(element => {
