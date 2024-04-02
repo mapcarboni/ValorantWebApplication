@@ -31,20 +31,60 @@ function Detalhes() {
         return <p>Carregando...</p>;
     }
 
+    const styles = {
+        h1: {
+            backgroundImage: 'linear-gradient(to right, lightgray, rgb(140, 140, 140))',
+            marginBottom: '2rem',
+            padding: '1rem',
+            borderRadius: '15px',
+            textAlign: 'center',
+            boxShadow: '0.1rem 0.1rem 1.5rem black',
+        },
+        button: {
+            fontWeight: 'bolder',
+            fontSize: '125%',
+            backgroundColor: '#c0c0c0',
+            borderRadius: '1rem',
+            boxShadow: '0.5rem 0.25rem 0.75rem black',
+            padding: '0.5rem',
+            margin: '0.5rem',
+        },
+        img: {
+            width: '300px',
+            marginBottom: '1rem',
+        },
+        h2: {
+            margin: '1rem',
+        },
+        coluna: {
+            listStyle: 'none',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            columnGap: '4rem',
+        }
+
+    };
+
     return (
         <div>
-            <h1>{agente.displayName}</h1>
+            <h1 style={styles.h1}>{agente.displayName}</h1>
+            <div>
             <Link to={`/formulario/${uuid}`}>
-                <button>Editar</button>
+                <button style={styles.button}>Editar</button>
             </Link>
             <Link to={`/`}>
-                <button onClick={deleteAgente}>Deletar</button>
+                <button style={styles.button} onClick={deleteAgente}>Deletar</button>
             </Link>
             <Link to={`/`}>
-                <button>Voltar</button>
+                <button style={styles.button}>Voltar</button>
             </Link>
-            <img src={agente.fullPortrait} alt={agente.displayName} />
-            <h2>{agente.description}</h2>
+            </div>
+            <div style={styles.coluna}>
+            <div>
+                <img style={styles.img} id="teste" src={agente.fullPortrait} alt={agente.displayName} />
+            </div>
+            <h2 style={styles.h2}>{agente.description}</h2>
+            </div>
         </div>
     );
 }
