@@ -1,0 +1,36 @@
+.bodydetalhes {
+    margin: 5.5rem 0.5rem 0.5rem;
+}
+
+.botaoDescricao {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.fotoDescricao {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+}
+
+.retrato {
+    max-width: 475px;
+    max-height: 475px;
+    width: auto;
+    height: auto;
+}
+
+h3 {
+    margin-top: 2rem;
+    text-align: justify;   
+}
+
+@media (max-width: 503px) {
+    .fotoDescricao {
+      flex-direction: column;
+    }
+
+    .bodydetalhes {
+        margin: 5.5rem 1rem 1rem;
+    }
+}

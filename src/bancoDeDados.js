@@ -1,5 +1,7 @@
 import Agente from './agente'; // Importação da classe Agente
 import { v4 as uuidv4 } from 'uuid'; // Importação da função uuidv4
+import NovoAgente from './imagem/novoUsuario.png';
+import FullAgente from './imagem/agente.png';
 
 class BancoDeDados {
     constructor () {
@@ -49,14 +51,14 @@ class BancoDeDados {
         let agente = this.agenteMapa.get(uuid);
         agente.displayName = displayName;
         agente.description = description;
-    }
+}
     
     // Adiciona um novo agente ao banco de dados
     adicionarNovoAgente() {
         // Obtém a instância do banco de dados
         const bancoDeDados = BancoDeDados.retornaBancoDeDados();
         // Cria um novo agente com UUID gerado pelo uuidv4
-        const novoAgente = new Agente(uuidv4(), "Novo Agente", "icon-url", "Descricao do novo agente", "portrait-url");
+        const novoAgente = new Agente(uuidv4(), "Novo Agente", NovoAgente, "Descrever informacoes do novo agente", FullAgente);
         // Adiciona o novo agente ao mapa de agentes
         bancoDeDados.agenteMapa.set(novoAgente.uuid, novoAgente);
     }

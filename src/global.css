@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Times, sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #F7C2DF, #FF4763);
+}
+
+header {
+    position: fixed;
+    top: 1%;
+    left: 1%;
+    width: 98%;
+    z-index: 1000;
+}
+
+h1 {
+    background: linear-gradient(to right, lightgray, darkgray);
+    padding: 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0.5rem 0.5rem 1.5rem black;
+}
+
+button {
+    font-weight: bolder;
+    font-size: 125%;
+    background-color: #c0c0c0;
+    padding: 0.5rem 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0.5rem 0.25rem 0.75rem black;
+    margin: 0.5rem;
+}
+
+p {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 125%;
+    animation: aumentar 3s infinite;
+}
+
+@keyframes aumentar {
+    0% { transform: scale(1); } /* Tamanho original */
+    50% { transform: scale(1.1); } /* Aumenta para 10% maior */
+    100% { transform: scale(1); } /* Retorna ao tamanho original */
+}
+
+@media (max-width: 503px) {
+    button {
+        font-weight: bolder;
+        background-color: #c0c0c0;
+        padding: 0.25rem 1rem;
+        border-radius: 1rem;
+        box-shadow: 0.5rem 0.25rem 0.75rem black;
+        margin: 0.3rem;
+    }
+}

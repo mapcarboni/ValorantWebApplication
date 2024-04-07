@@ -1,0 +1,29 @@
+.formulario {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    margin-top: 7rem;
+    width: 80%;
+}
+
+label {
+    font-weight: bolder
+}
+
+input {
+    width: 99%;
+    font-size: 125%;
+    margin: 0.25rem 0 0.5rem;
+}
+
+textarea{
+    width: 99%;
+    min-height: 8rem;
+    margin-bottom: 1rem;
+    font-size: 125%;
+    margin: 0.25rem 0 0.5rem;
+}

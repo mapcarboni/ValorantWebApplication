@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import BancoDeDados from '../bancoDeDados';
+import '../styles/formulario.css';
 
 // Componente funcional Formulario, responsável pela edição de detalhes de um agente
 function Formulario() {
@@ -32,14 +33,16 @@ function Formulario() {
     }, [uuid, bancoDeDados]);
 
     // Função para lidar com o envio do formulário
-    const enviar = (e) => {
+    const enviar = async (e) => {        
         e.preventDefault();
         try {
-            // Salva as alterações do agente no banco de dados
-            bancoDeDados.salvarAgente(uuid, detalhes.displayName, detalhes.description);
-            setSuccessMessage("Agente salvo com sucesso!!!");
+            if(detalhes.displayName){
+                // Salva as alterações do agente no banco de dados
+                bancoDeDados.salvarAgente(uuid, detalhes.displayName, detalhes.description);
+                setSuccessMessage("AGENTE SALVO COM SUCESSO!!!");                   
+            }
         } catch (error) {
-            setSuccessMessage("Alterações não salvas!!!");
+            setSuccessMessage("ALTERAÇÕES NÃO SALVAS!!!");
             console.log(error);
         }
     };
@@ -53,60 +56,32 @@ function Formulario() {
         }));
     };
 
-    // Estilos utilizados no componente
-    const styles = {
-        h1: {
-            backgroundImage: 'linear-gradient(to right, lightgray, rgb(140, 140, 140))',
-            marginBottom: '2rem',
-            padding: '1rem',
-            borderRadius: '15px',
-            textAlign: 'center',
-            boxShadow: '0.1rem 0.1rem 1.5rem black',
-        },
-        form: {
-            fontSize: '100%',
-            padding: '1rem',
-        },
-        button: {
-            fontWeight: 'bolder',
-            fontSize: '125%',
-            backgroundColor: '#c0c0c0',
-            borderRadius: '1rem',
-            boxShadow: '0.5rem 0.25rem 0.75rem black',
-            padding: '0.5rem',
-        },
-        p: {
-            textAlign: 'center',
-        },
-        coluna: {
-            textAlign: 'center',
-        }
-    };
-
     // Renderização do componente
     return (
         <div>
-            {/* Título do formulário */}
-            <h1 style={styles.h1}>Edição do Agente</h1>
-            <div style={styles.coluna}>
+            <header>
+                {/* Título do formulário */}
+                <h1>Edição do Agente</h1>
+            </header>
+            <div class="formulario">
                 {/* Formulário de edição dos detalhes do agente */}
-                <form style={styles.form} onSubmit={enviar}>
+                <form onSubmit={enviar}>
                     <label>Nome:</label><br/>
                     <input type="text" name="displayName" value={detalhes?.displayName} onChange={alteracao} autoFocus required /><br/>
                     <label>Descrição:</label><br/>
-                    <textarea style={{height: '200px'}} name="description" value={detalhes?.description} onChange={alteracao} /><br/>
+                    <textarea name="description" value={detalhes?.description} onChange={alteracao} /><br/>
                     {/* Botão para salvar as alterações */}
-                    <input style={styles.button} type="submit" value="Salvar" />
-                    {/* Mensagem de sucesso */}
-                    <p style={{ color: "green" }}>{successMessage}</p>
+                    <button type="submit">Salvar</button>
+                    {/* Botão "Voltar" fora do formulário */}
+                    <Link to={`/detalhes/${uuid}`}>
+                        <button type="button">Voltar</button>
+                    </Link>
                 </form>
-                {/* Link para voltar à página de detalhes do agente */}
-                <Link to={`/detalhes/${uuid}`}>
-                    <button style={styles.button}>Voltar</button>
-                </Link>
             </div>
+            {/* Mensagem de sucesso */}
+            <p>{successMessage}</p>
         </div>
-    );
+    );    
 }
 // Exportação do componente Formulario
 export default Formulario;
