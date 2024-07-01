@@ -1,6 +1,3 @@
-### Guia de Codigos para powershell:
+### Guia de Códigos para powershell:
 
-npm install react-router-dom@6
-npm i react-uuid
-cd valorant
-npm start
+npm install react-router-dom@6 npm i react-uuid npm start
